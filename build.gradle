@@ -1,7 +1,10 @@
 plugins {
     id 'java'
+    id 'distribution'
     id 'se.patrikerdes.use-latest-versions' version '0.2.18'
     id 'com.github.ben-manes.versions' version '0.42.0'
+    id 'application'
+    id 'java-library'
 }
 
 group 'hexlet.code'
@@ -14,8 +17,19 @@ repositories {
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.0-RC1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.0-RC1'
+
+    api 'com.google.guava:guava:23.0'
+    testImplementation 'junit:junit:4.+'
 }
 
 test {
     useJUnitPlatform()
+}
+
+application {
+    mainClassName = 'hexlet.code.App'
+}
+
+compileJava {
+    options.release = 17
 }
