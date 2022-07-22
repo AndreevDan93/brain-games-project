@@ -3,10 +3,12 @@ package hexlet.code;
 import java.util.Random;
 import java.util.Scanner;
 
+import static java.nio.charset.StandardCharsets.UTF_8;
+
 public class ParityCheckGame {
     public static void game() {
 
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in,UTF_8.name());
         Random random = new Random();
         int countCorrectAnswer = 0;
         Cli.greeting();
@@ -39,7 +41,7 @@ public class ParityCheckGame {
         }
 
         if (countCorrectAnswer == countForWin) {
-            System.out.println("Congratulations, " + Cli.getName());
+            System.out.println("Congratulations, " + Cli.getName() + "!");
             countCorrectAnswer = 0;
         }
 

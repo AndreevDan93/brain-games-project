@@ -2,9 +2,11 @@ package hexlet.code;
 
 import java.util.Scanner;
 
+import static java.nio.charset.StandardCharsets.UTF_8;
+
 public class App {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in,UTF_8.name());
         int inputNum;
         System.out.println("Please enter the game number and press Enter.\n"
                 + "1 - Greet\n"
