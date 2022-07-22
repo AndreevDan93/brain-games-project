@@ -45,6 +45,10 @@ dependencies {
     errorprone 'com.google.errorprone:error_prone_core:2.11.0'
 }
 
+run {
+    standardInput = System.in
+}
+
 test {
     useJUnitPlatform()
 }
@@ -63,7 +67,5 @@ checkstyle {
     toolVersion '9.2.1'
 }
 
-run {
-    standardInput = System.in
-}
+
 
