@@ -1,5 +1,8 @@
 package hexlet.code;
 
+import hexlet.code.games.Calculator;
+import hexlet.code.games.ParityCheckGame;
+
 import java.util.Scanner;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
@@ -11,6 +14,7 @@ public class App {
         System.out.println("Please enter the game number and press Enter.\n"
                 + "1 - Greet\n"
                 + "2 - Even\n"
+                + "3 - Calc\n"
                 + "0 - Exit");
         inputNum = scanner.nextInt();
         System.out.println("Your choice: " + inputNum);
@@ -22,6 +26,9 @@ public class App {
         }
         if (inputNum == 2) {
             ParityCheckGame.game();
+        }
+        if (inputNum == 3) {
+            Calculator.game();
         }
 
 
