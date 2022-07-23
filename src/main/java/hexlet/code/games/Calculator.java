@@ -29,7 +29,7 @@ public class Calculator {
             }
         }
         if (isWin) {
-            System.out.println("Congratulations, Sam!");
+            System.out.printf("Congratulations, %s \n",Engine.getPlayerName());
         }
     }
 
