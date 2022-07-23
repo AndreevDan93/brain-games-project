@@ -1,14 +1,9 @@
 package hexlet.code.games;
 
-import hexlet.code.Cli;
 import hexlet.code.Engine;
 
-import java.util.Random;
-import java.util.Scanner;
 
-import static java.nio.charset.StandardCharsets.UTF_8;
-
-public class ParityCheckGame {
+public class EvenCheckGame {
 
     public static void game() {
         boolean isWin = true;
@@ -18,23 +13,25 @@ public class ParityCheckGame {
 
         for (int i = 0; i < Engine.getCountOfRounds(); i++) {
             int randomNum = Engine.getRandomNum(Engine.getRandomRange());
-            boolean flag = randomNum % 2 == 0;
             System.out.println("Question: " + randomNum);
-            String inputAnswer = Engine.scanner.nextLine();
 
-            if ((flag && inputAnswer.equals("yes")) || (!flag && inputAnswer.equals("no"))) {
+            String inputAnswer = Engine.getScanner().nextLine();
+            boolean evenCheck= randomNum % 2 == 0;
+
+            if ((evenCheck && inputAnswer.equals("yes")) || (!evenCheck && inputAnswer.equals("no"))) {
                 System.out.println("Correct!");
-                continue;
             }
-            if (flag && !inputAnswer.equals("yes")) {
+            else if (evenCheck) {
                 System.out.println("'" + inputAnswer + "' "
-                        + "is wrong answer ;(. Correct answer was 'no'. Let's try again, " + Engine.getPlayerName() + "!");
+                        + "is wrong answer ;(. Correct answer was 'yes'. Let's try again, "
+                        + Engine.getPlayerName() + "!");
                 isWin = false;
                 break;
             }
-            if (!flag && !inputAnswer.equals("no")) {
+            else  {
                 System.out.println("'" + inputAnswer + "' "
-                        + "is wrong answer ;(. Correct answer was 'yes'. Let's try again, " + Engine.getPlayerName() + "!");
+                        + "is wrong answer ;(. Correct answer was 'no'. Let's try again, "
+                        + Engine.getPlayerName() + "!");
                 isWin = false;
                 break;
             }
