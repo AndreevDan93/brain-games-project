@@ -1,12 +1,7 @@
 package hexlet.code.games;
 
-import hexlet.code.Cli;
 import hexlet.code.Engine;
 
-import java.util.Random;
-import java.util.Scanner;
-
-import static java.nio.charset.StandardCharsets.UTF_8;
 
 public class Calculator {
     public static void game() {
@@ -17,7 +12,7 @@ public class Calculator {
 
             String randomExpression = getRandomExpression();
             System.out.println("Question: " + randomExpression);
-            int answer = Engine.scanner.nextInt();
+            int answer = Engine.getScanner().nextInt();
             int correctAnswer = getResultOfRandomExpression(randomExpression);
             if (answer == correctAnswer) {
                 System.out.println("Correct!");
@@ -29,7 +24,7 @@ public class Calculator {
             }
         }
         if (isWin) {
-            System.out.printf("Congratulations, %s \n",Engine.getPlayerName());
+            System.out.printf("Congratulations, %s \n", Engine.getPlayerName());
         }
     }
 
@@ -37,27 +32,19 @@ public class Calculator {
         int num1 = Engine.getRandomNum(Engine.getRandomRange());
         int num2 = Engine.getRandomNum(Engine.getRandomRange());
         String operation = Engine.getRandomOperation();
-        String result = num1 + " " + operation + " " + num2;
-        return result;
+        return num1 + " " + operation + " " + num2;
+
     }
 
     public static int getResultOfRandomExpression(String randomExpression) {
         String[] expression = randomExpression.split(" ");
-        int result = 0;
-        switch (expression[1]) {
-            case "+":
-                result = Integer.parseInt(expression[0]) + Integer.parseInt(expression[2]);
-                break;
-            case "-":
-                result = Integer.parseInt(expression[0]) - Integer.parseInt(expression[2]);
-                break;
-            case "*":
-                result = Integer.parseInt(expression[0]) * Integer.parseInt(expression[2]);
-                break;
-            default:
-                break;
-        }
-        return result;
+
+        return switch (expression[1]) {
+            case "+" -> Integer.parseInt(expression[0]) + Integer.parseInt(expression[2]);
+            case "-" -> Integer.parseInt(expression[0]) - Integer.parseInt(expression[2]);
+            case "*" -> Integer.parseInt(expression[0]) * Integer.parseInt(expression[2]);
+            default -> 0;
+        };
     }
 
 

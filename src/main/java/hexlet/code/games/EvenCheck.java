@@ -3,7 +3,7 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 
-public class EvenCheckGame {
+public class EvenCheck {
 
     public static void game() {
         boolean isWin = true;
@@ -16,19 +16,17 @@ public class EvenCheckGame {
             System.out.println("Question: " + randomNum);
 
             String inputAnswer = Engine.getScanner().nextLine();
-            boolean evenCheck= randomNum % 2 == 0;
+            boolean evenCheck = randomNum % 2 == 0;
 
             if ((evenCheck && inputAnswer.equals("yes")) || (!evenCheck && inputAnswer.equals("no"))) {
                 System.out.println("Correct!");
-            }
-            else if (evenCheck) {
+            } else if (evenCheck) {
                 System.out.println("'" + inputAnswer + "' "
                         + "is wrong answer ;(. Correct answer was 'yes'. Let's try again, "
                         + Engine.getPlayerName() + "!");
                 isWin = false;
                 break;
-            }
-            else  {
+            } else {
                 System.out.println("'" + inputAnswer + "' "
                         + "is wrong answer ;(. Correct answer was 'no'. Let's try again, "
                         + Engine.getPlayerName() + "!");
