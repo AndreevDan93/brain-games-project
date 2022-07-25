@@ -11,7 +11,7 @@ public class GreatestCommonDivisor {
 
     }
 
-    public static void addArrayToGameData() {
+    private static void addArrayToGameData() {
         for (int i = 0; i < Engine.getCountOfRounds(); i++) {
             int randomNum1 = Engine.getRandomNum(Engine.getRandomRange());
             int randomNum2 = Engine.getRandomNum(Engine.getRandomRange());
@@ -21,7 +21,7 @@ public class GreatestCommonDivisor {
         }
     }
 
-    public static int getGreatestCommonDivisor(int num1, int num2) {
+    private static int getGreatestCommonDivisor(int num1, int num2) {
         while (num1 != num2) {
             if (num1 > num2) {
                 num1 = num1 - num2;

@@ -11,7 +11,7 @@ public class Calculator {
         Engine.gameAlgorithm(Engine.getArrCorrectAnswers(), Engine.getArrQuestions());
     }
 
-    public static void addArrayToGameData() {
+    private static void addArrayToGameData() {
         for (int i = 0; i < Engine.getCountOfRounds(); i++) {
             String randomExpression = getRandomExpression();
             Engine.getArrCorrectAnswers()[i] = Integer.toString(getResultOfRandomExpression(randomExpression));
@@ -19,14 +19,14 @@ public class Calculator {
         }
     }
 
-    public static String getRandomExpression() {
+    private static String getRandomExpression() {
         int num1 = Engine.getRandomNum(Engine.getRandomRange());
         int num2 = Engine.getRandomNum(Engine.getRandomRange());
         String operation = getRandomOperation();
         return num1 + " " + operation + " " + num2;
     }
 
-    public static int getResultOfRandomExpression(String randomExpression) {
+    private static int getResultOfRandomExpression(String randomExpression) {
         String[] expression = randomExpression.split(" ");
 
         return switch (expression[1]) {
@@ -37,7 +37,7 @@ public class Calculator {
         };
     }
 
-    public static String getRandomOperation() {
+    private static String getRandomOperation() {
         String[] operations = {"+", "-", "*"};
         int i = Engine.getRandomNum(operations.length);
         return operations[i];

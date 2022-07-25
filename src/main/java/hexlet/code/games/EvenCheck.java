@@ -12,7 +12,7 @@ public class EvenCheck {
     }
 
 
-    public static void addArrayToGameData() {
+    private static void addArrayToGameData() {
         for (int i = 0; i < Engine.getCountOfRounds(); i++) {
             int randomNum = Engine.getRandomNum(Engine.getRandomRange());
             Engine.getArrCorrectAnswers()[i] = randomNum % 2 == 0 ? "yes" : "no";
