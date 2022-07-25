@@ -15,6 +15,7 @@ public class PrimeNumber {
 
     private static void addArrayToGameData() {
         for (int i = 0; i < Engine.getCountOfRounds(); i++) {
+            
             int randomNumber = Engine.getRandomNum(Engine.getRandomRange());
             String correctAnswer = isPrimeNumber(randomNumber);
 
