@@ -12,16 +12,16 @@ public class Engine {
     private static final int RANDOM_RANGE = 100;
     private static String playerName;
 
-    private static final String[] arrCorrectAnswers = new String[Engine.getCountOfRounds()];
-    private static final String[] arrQuestions = new String[Engine.getCountOfRounds()];
+    private static final String[] ARR_CORRECT_ANSWER = new String[Engine.getCountOfRounds()];
+    private static final String[] ARR_QUESTIONS = new String[Engine.getCountOfRounds()];
 
 
     public static String[] getArrCorrectAnswers() {
-        return arrCorrectAnswers;
+        return ARR_CORRECT_ANSWER;
     }
 
     public static String[] getArrQuestions() {
-        return arrQuestions;
+        return ARR_QUESTIONS;
     }
 
     public static Scanner getScanner() {
