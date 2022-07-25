@@ -12,8 +12,8 @@ public class Engine {
     private static final int RANDOM_RANGE = 100;
     private static String playerName;
 
-    private static String[] arrCorrectAnswers = new String[Engine.getCountOfRounds()];
-    private static String[] arrQuestions = new String[Engine.getCountOfRounds()];
+    private static final String[] arrCorrectAnswers = new String[Engine.getCountOfRounds()];
+    private static final String[] arrQuestions = new String[Engine.getCountOfRounds()];
 
 
     public static String[] getArrCorrectAnswers() {
@@ -28,10 +28,6 @@ public class Engine {
         return SCANNER;
     }
 
-    public static String getPlayerName() {
-        return playerName;
-    }
-
     public static int getCountOfRounds() {
         return COUNT_OF_RANGES;
     }
@@ -41,10 +37,10 @@ public class Engine {
     }
 
     public static void greeting() {
-        System.out.println("Welcome to the Brain Games!\n"
-                + "May I have your name?");
+        System.out.print("Welcome to the Brain Games!\n"
+                + "May I have your name? ");
         SCANNER.nextLine();
-        playerName = SCANNER.nextLine();
+        playerName = SCANNER.next();
         System.out.println("Hello, " + playerName + "!");
     }
 
@@ -52,24 +48,21 @@ public class Engine {
         return RANDOM.nextInt(randomRange);
     }
 
-    public static String getQuestionForm(String question) {
-        return "Question: " + question;
-    }
-
     public static void gameAlgorithm(String[] correctAnswers, String[] questions) {
         boolean isWin = true;
         for (int i = 0; i < Engine.getCountOfRounds(); i++) {
-            System.out.println(questions[i]);
+            System.out.println("Question: " + questions[i]);
 
             String correctAnswer = correctAnswers[i];
-            String inputAnswer = getScanner().nextLine();
+            System.out.print("Your answer: ");
+            String inputAnswer = getScanner().next();
 
             if (correctAnswer.equals(inputAnswer)) {
                 System.out.println("Correct!");
             } else {
                 System.out.println("'" + inputAnswer + "' "
                         + "is wrong answer ;(. Correct answer was '" + correctAnswer + "'. Let's try again, "
-                        + Engine.getPlayerName() + "!");
+                        + Engine.playerName + "!");
                 isWin = false;
                 break;
             }

@@ -3,6 +3,7 @@ package hexlet.code;
 import hexlet.code.games.Calculator;
 import hexlet.code.games.EvenCheck;
 import hexlet.code.games.GreatestCommonDivisor;
+import hexlet.code.games.PrimeNumber;
 import hexlet.code.games.Progression;
 
 
@@ -15,6 +16,7 @@ public class App {
         final int calc = 3;
         final int gcd = 4;
         final int progression = 5;
+        final int prime = 6;
 
         System.out.println("""
                 Please enter the game number and press Enter.
@@ -23,10 +25,12 @@ public class App {
                 3 - Calc
                 4 - GCD
                 5 - Progression
+                6 - Prime
                 0 - Exit""");
 
+        System.out.print("Your choice: ");
         inputNum = Engine.getScanner().nextInt();
-        System.out.println("Your choice: " + inputNum);
+
 
         switch (inputNum) {
             case exit:
@@ -45,6 +49,9 @@ public class App {
                 break;
             case progression:
                 Progression.game();
+                break;
+            case prime:
+                PrimeNumber.game();
                 break;
             default:
                 break;

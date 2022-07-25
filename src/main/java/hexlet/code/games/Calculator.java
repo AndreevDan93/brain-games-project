@@ -15,7 +15,7 @@ public class Calculator {
         for (int i = 0; i < Engine.getCountOfRounds(); i++) {
             String randomExpression = getRandomExpression();
             Engine.getArrCorrectAnswers()[i] = Integer.toString(getResultOfRandomExpression(randomExpression));
-            Engine.getArrQuestions()[i] = Engine.getQuestionForm(randomExpression);
+            Engine.getArrQuestions()[i] = randomExpression;
         }
     }
 
