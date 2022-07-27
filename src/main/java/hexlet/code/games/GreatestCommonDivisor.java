@@ -4,20 +4,21 @@ import hexlet.code.Engine;
 
 public class GreatestCommonDivisor {
 
-    static String[][] arrayOfQuestionsAndAnswers = new String[Engine.COUNT_OF_ROUNDS][Engine.COUNT_ANSWER_OPTIONS];
+    private static final String[][] ARRAY_OF_QUESTIONS_AND_ANSWERS =
+            new String[Engine.COUNT_OF_ROUNDS][Engine.COUNT_ANSWER_OPTIONS];
 
     public static void game() {
-        addArrayToGameData();
-        Engine.gameLogic("Find the greatest common divisor of given numbers.",arrayOfQuestionsAndAnswers);
+        generateGameData();
+        Engine.gameLogic("Find the greatest common divisor of given numbers.", ARRAY_OF_QUESTIONS_AND_ANSWERS);
     }
 
-    private static void addArrayToGameData() {
+    private static void generateGameData() {
         for (int i = 0; i < Engine.COUNT_OF_ROUNDS; i++) {
             int randomNum1 = Engine.getRandomNum(Engine.RANDOM_RANGE);
             int randomNum2 = Engine.getRandomNum(Engine.RANDOM_RANGE);
 
-            arrayOfQuestionsAndAnswers[i][0] = randomNum1 + " " + randomNum2;
-            arrayOfQuestionsAndAnswers[i][1] = Integer.toString(getGreatestCommonDivisor(randomNum1, randomNum2));
+            ARRAY_OF_QUESTIONS_AND_ANSWERS[i][0] = randomNum1 + " " + randomNum2;
+            ARRAY_OF_QUESTIONS_AND_ANSWERS[i][1] = Integer.toString(getGreatestCommonDivisor(randomNum1, randomNum2));
         }
     }
 

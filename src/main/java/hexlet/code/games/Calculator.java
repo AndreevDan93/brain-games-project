@@ -4,19 +4,20 @@ import hexlet.code.Engine;
 
 
 public class Calculator {
-    static final String[] OPERATIONS = {"+", "-", "*"};
-    static String[][] arrayOfQuestionsAndAnswers = new String[Engine.COUNT_OF_ROUNDS][Engine.COUNT_ANSWER_OPTIONS];
+    private static final String[] OPERATIONS = {"+", "-", "*"};
+    private static final String[][] ARRAY_OF_QUESTIONS_AND_ANSWERS =
+            new String[Engine.COUNT_OF_ROUNDS][Engine.COUNT_ANSWER_OPTIONS];
 
     public static void game() {
         generateGameData();
-        Engine.gameLogic("What is the result of the expression?",arrayOfQuestionsAndAnswers);
+        Engine.gameLogic("What is the result of the expression?", ARRAY_OF_QUESTIONS_AND_ANSWERS);
     }
 
     private static void generateGameData() {
         for (int i = 0; i < Engine.COUNT_OF_ROUNDS; i++) {
             String randomExpression = getRandomExpression();
-            arrayOfQuestionsAndAnswers[i][0] = randomExpression;
-            arrayOfQuestionsAndAnswers[i][1] = Integer.toString(getResultOfRandomExpression(randomExpression));
+            ARRAY_OF_QUESTIONS_AND_ANSWERS[i][0] = randomExpression;
+            ARRAY_OF_QUESTIONS_AND_ANSWERS[i][1] = Integer.toString(getResultOfRandomExpression(randomExpression));
         }
     }
 

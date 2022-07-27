@@ -6,22 +6,23 @@ import java.math.BigInteger;
 
 public class PrimeNumber {
 
-    static String[][] arrayOfQuestionsAndAnswers = new String[Engine.COUNT_OF_ROUNDS][Engine.COUNT_ANSWER_OPTIONS];
+    private static final String[][] ARRAY_OF_QUESTIONS_AND_ANSWERS =
+            new String[Engine.COUNT_OF_ROUNDS][Engine.COUNT_ANSWER_OPTIONS];
 
     public static void game() {
-        addArrayToGameData();
-        Engine.gameLogic("Answer 'yes' if number even otherwise answer 'no'.",arrayOfQuestionsAndAnswers);
+        generateGameData();
+        Engine.gameLogic("Answer 'yes' if number even otherwise answer 'no'.", ARRAY_OF_QUESTIONS_AND_ANSWERS);
     }
 
 
-    private static void addArrayToGameData() {
+    private static void generateGameData() {
         for (int i = 0; i < Engine.COUNT_OF_ROUNDS; i++) {
 
             int randomNumber = Engine.getRandomNum(Engine.RANDOM_RANGE);
             String correctAnswer = isPrimeNumber(randomNumber);
 
-            arrayOfQuestionsAndAnswers[i][0] = Integer.toString(randomNumber);
-            arrayOfQuestionsAndAnswers[i][1] = correctAnswer;
+            ARRAY_OF_QUESTIONS_AND_ANSWERS[i][0] = Integer.toString(randomNumber);
+            ARRAY_OF_QUESTIONS_AND_ANSWERS[i][1] = correctAnswer;
 
         }
     }

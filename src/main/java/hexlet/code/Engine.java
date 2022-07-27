@@ -7,7 +7,6 @@ import java.util.Scanner;
 public class Engine {
     public static final Scanner SCANNER = new Scanner(System.in);
     public static final Random RANDOM = new Random();
-
     public static final int COUNT_OF_ROUNDS = 3;
     public static final int RANDOM_RANGE = 100;
     public static final int COUNT_ANSWER_OPTIONS = 2;
