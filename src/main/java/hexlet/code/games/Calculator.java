@@ -21,20 +21,15 @@ public class Calculator {
         return arrayOfData;
     }
 
-    private static String getRandomOperation() {
-        return OPERATIONS[Engine.getRandomNum(OPERATIONS.length)];
-    }
-
     private static String getRandomExpression() {
         int num1 = Engine.getRandomNum(Engine.RANDOM_RANGE);
         int num2 = Engine.getRandomNum(Engine.RANDOM_RANGE);
-        String operation = getRandomOperation();
-        return num1 + " " + operation + " " + num2;
+        String randomOperation = OPERATIONS[Engine.getRandomNum(OPERATIONS.length)];
+        return num1 + " " + randomOperation + " " + num2;
     }
 
     private static int getResultOfRandomExpression(String randomExpression) {
         String[] expression = randomExpression.split(" ");
-
         return switch (expression[1]) {
             case "+" -> Integer.parseInt(expression[0]) + Integer.parseInt(expression[2]);
             case "-" -> Integer.parseInt(expression[0]) - Integer.parseInt(expression[2]);
