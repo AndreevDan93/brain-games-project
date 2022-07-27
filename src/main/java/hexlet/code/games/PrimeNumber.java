@@ -7,7 +7,6 @@ import java.math.BigInteger;
 public class PrimeNumber {
 
     private static final String GAME_CONDITIONS = "Answer 'yes' if number even otherwise answer 'no'.";
-
     public static void game() {
         Engine.gameLogic(GAME_CONDITIONS, generateGameData());
     }
