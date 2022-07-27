@@ -4,26 +4,25 @@ import hexlet.code.Engine;
 
 
 public class Calculator {
+    private static final String GAME_CONDITIONS = "What is the result of the expression?";
     private static final String[] OPERATIONS = {"+", "-", "*"};
-    private static final String[][] ARRAY_OF_QUESTIONS_AND_ANSWERS =
-            new String[Engine.COUNT_OF_ROUNDS][Engine.COUNT_ANSWER_OPTIONS];
 
     public static void game() {
-        generateGameData();
-        Engine.gameLogic("What is the result of the expression?", ARRAY_OF_QUESTIONS_AND_ANSWERS);
+        Engine.gameLogic(GAME_CONDITIONS, generateGameData());
     }
 
-    private static void generateGameData() {
+    private static String[][] generateGameData() {
+        String[][] arrayOfData = new String[Engine.COUNT_OF_ROUNDS][Engine.COUNT_ANSWER_OPTIONS];
         for (int i = 0; i < Engine.COUNT_OF_ROUNDS; i++) {
             String randomExpression = getRandomExpression();
-            ARRAY_OF_QUESTIONS_AND_ANSWERS[i][0] = randomExpression;
-            ARRAY_OF_QUESTIONS_AND_ANSWERS[i][1] = Integer.toString(getResultOfRandomExpression(randomExpression));
+            arrayOfData[i][0] = randomExpression;
+            arrayOfData[i][1] = Integer.toString(getResultOfRandomExpression(randomExpression));
         }
+        return arrayOfData;
     }
 
     private static String getRandomOperation() {
-        int i = Engine.getRandomNum(OPERATIONS.length);
-        return OPERATIONS[i];
+        return OPERATIONS[Engine.getRandomNum(OPERATIONS.length)];
     }
 
     private static String getRandomExpression() {

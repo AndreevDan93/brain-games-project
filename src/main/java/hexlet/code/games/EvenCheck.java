@@ -5,21 +5,21 @@ import hexlet.code.Engine;
 
 public class EvenCheck {
 
-    private static final String[][] ARRAY_OF_QUESTIONS_AND_ANSWERS =
-            new String[Engine.COUNT_OF_ROUNDS][Engine.COUNT_ANSWER_OPTIONS];
+    private static final String GAME_CONDITIONS = "Answer 'yes' if number even otherwise answer 'no'.";
 
     public static void game() {
-        generateGameData();
-        Engine.gameLogic("Answer 'yes' if number even otherwise answer 'no'.", ARRAY_OF_QUESTIONS_AND_ANSWERS);
+        Engine.gameLogic(GAME_CONDITIONS, generateGameData());
     }
 
 
-    private static void generateGameData() {
+    private static String[][] generateGameData() {
+        String[][] arrayOfData = new String[Engine.COUNT_OF_ROUNDS][Engine.COUNT_ANSWER_OPTIONS];
         for (int i = 0; i < Engine.COUNT_OF_ROUNDS; i++) {
             int randomNum = Engine.getRandomNum(Engine.RANDOM_RANGE);
-            ARRAY_OF_QUESTIONS_AND_ANSWERS[i][0] = Integer.toString(randomNum);
-            ARRAY_OF_QUESTIONS_AND_ANSWERS[i][1] = randomNum % 2 == 0 ? Engine.POSITIVE : Engine.NEGATIVE;
+            arrayOfData[i][0] = Integer.toString(randomNum);
+            arrayOfData[i][1] = randomNum % 2 == 0 ? Engine.POSITIVE : Engine.NEGATIVE;
         }
+        return arrayOfData;
     }
 
 
