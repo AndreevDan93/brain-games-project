@@ -6,17 +6,15 @@ import java.math.BigInteger;
 
 public class PrimeNumber {
     public static void game() {
-        Engine.greeting();
-        System.out.println("Answer 'yes' if number even otherwise answer 'no'.");
         addArrayToGameData();
-        Engine.gameAlgorithm(Engine.getArrCorrectAnswers(), Engine.getArrQuestions());
+        Engine.gameLogic("Answer 'yes' if number even otherwise answer 'no'.");
     }
 
 
     private static void addArrayToGameData() {
-        for (int i = 0; i < Engine.getCountOfRounds(); i++) {
+        for (int i = 0; i < Engine.COUNT_OF_ROUNDS; i++) {
 
-            int randomNumber = Engine.getRandomNum(Engine.getRandomRange());
+            int randomNumber = Engine.getRandomNum(Engine.RANDOM_RANGE);
             String correctAnswer = isPrimeNumber(randomNumber);
 
             Engine.getArrQuestions()[i] = Integer.toString(randomNumber);
@@ -28,7 +26,7 @@ public class PrimeNumber {
     private static String isPrimeNumber(int number) {
         BigInteger bigInteger = BigInteger.valueOf(number);
         boolean isPrime = bigInteger.isProbablePrime((int) Math.log(number));
-        return isPrime ? "yes" : "no";
+        return isPrime ? Engine.POSITIVE : Engine.NEGATIVE;
     }
 
 }

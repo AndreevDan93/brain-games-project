@@ -8,15 +8,15 @@ import hexlet.code.games.Progression;
 
 
 public class App {
+    static final int EXIT = 0;
+    static final int GREET = 1;
+    static final int EVEN = 2;
+    static final int CALC = 3;
+    static final int GCD = 4;
+    static final int PROGRESSION = 5;
+    static final int PRIME = 6;
     public static void main(String[] args) {
         int inputNum;
-        final int exit = 0;
-        final int greet = 1;
-        final int even = 2;
-        final int calc = 3;
-        final int gcd = 4;
-        final int progression = 5;
-        final int prime = 6;
 
         System.out.println("""
                 Please enter the game number and press Enter.
@@ -29,28 +29,28 @@ public class App {
                 0 - Exit""");
 
         System.out.print("Your choice: ");
-        inputNum = Engine.getScanner().nextInt();
+        inputNum = Engine.SCANNER.nextInt();
 
 
         switch (inputNum) {
-            case exit:
+            case EXIT:
                 return;
-            case greet:
+            case GREET:
                 Cli.greeting();
                 break;
-            case even:
+            case EVEN:
                 EvenCheck.game();
                 break;
-            case calc:
+            case CALC:
                 Calculator.game();
                 break;
-            case gcd:
+            case GCD:
                 GreatestCommonDivisor.game();
                 break;
-            case progression:
+            case PROGRESSION:
                 Progression.game();
                 break;
-            case prime:
+            case PRIME:
                 PrimeNumber.game();
                 break;
             default:

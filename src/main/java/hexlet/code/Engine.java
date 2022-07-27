@@ -5,15 +5,17 @@ import java.util.Scanner;
 
 
 public class Engine {
-    private static final Scanner SCANNER = new Scanner(System.in);
-    private static final Random RANDOM = new Random();
+    public static final Scanner SCANNER = new Scanner(System.in);
+    public static final Random RANDOM = new Random();
 
-    private static final int COUNT_OF_RANGES = 3;
-    private static final int RANDOM_RANGE = 100;
+    public static final int COUNT_OF_ROUNDS = 3;
+    public static final int RANDOM_RANGE = 100;
+    public static final String POSITIVE = "yes";
+    public static final String NEGATIVE = "no";
     private static String playerName;
 
-    private static final String[] ARR_CORRECT_ANSWER = new String[Engine.getCountOfRounds()];
-    private static final String[] ARR_QUESTIONS = new String[Engine.getCountOfRounds()];
+    private static final String[] ARR_CORRECT_ANSWER = new String[COUNT_OF_ROUNDS];
+    private static final String[] ARR_QUESTIONS = new String[COUNT_OF_ROUNDS];
 
 
     public static String[] getArrCorrectAnswers() {
@@ -24,17 +26,6 @@ public class Engine {
         return ARR_QUESTIONS;
     }
 
-    public static Scanner getScanner() {
-        return SCANNER;
-    }
-
-    public static int getCountOfRounds() {
-        return COUNT_OF_RANGES;
-    }
-
-    public static int getRandomRange() {
-        return RANDOM_RANGE;
-    }
 
     public static void greeting() {
         System.out.print("Welcome to the Brain Games!\n"
@@ -49,13 +40,13 @@ public class Engine {
     }
 
     public static void gameAlgorithm(String[] correctAnswers, String[] questions) {
-        boolean isWin = true;
-        for (int i = 0; i < Engine.getCountOfRounds(); i++) {
+
+        for (int i = 0; i < Engine.COUNT_OF_ROUNDS; i++) {
             System.out.println("Question: " + questions[i]);
 
             String correctAnswer = correctAnswers[i];
             System.out.print("Your answer: ");
-            String inputAnswer = getScanner().next();
+            String inputAnswer = SCANNER.next();
 
             if (correctAnswer.equals(inputAnswer)) {
                 System.out.println("Correct!");
@@ -63,14 +54,18 @@ public class Engine {
                 System.out.println("'" + inputAnswer + "' "
                         + "is wrong answer ;(. Correct answer was '" + correctAnswer + "'. Let's try again, "
                         + Engine.playerName + "!");
-                isWin = false;
-                break;
+                return;
             }
         }
 
-        if (isWin) {
-            System.out.println("Congratulations, " + playerName + "!");
-        }
+        System.out.println("Congratulations, " + playerName + "!");
+
+    }
+
+    public static void gameLogic(String gameConditions) {
+        Engine.greeting();
+        System.out.println(gameConditions);
+        Engine.gameAlgorithm(Engine.getArrCorrectAnswers(), Engine.getArrQuestions());
     }
 
 
