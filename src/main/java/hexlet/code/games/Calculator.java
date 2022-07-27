@@ -21,6 +21,11 @@ public class Calculator {
         }
     }
 
+    private static String getRandomOperation() {
+        int i = Engine.getRandomNum(OPERATIONS.length);
+        return OPERATIONS[i];
+    }
+
     private static String getRandomExpression() {
         int num1 = Engine.getRandomNum(Engine.RANDOM_RANGE);
         int num2 = Engine.getRandomNum(Engine.RANDOM_RANGE);
@@ -38,11 +43,5 @@ public class Calculator {
             default -> throw new RuntimeException("Invalid Operation");
         };
     }
-
-    private static String getRandomOperation() {
-        int i = Engine.getRandomNum(OPERATIONS.length);
-        return OPERATIONS[i];
-    }
-
 
 }
