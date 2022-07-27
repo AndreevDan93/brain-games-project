@@ -3,9 +3,12 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 public class GreatestCommonDivisor {
+
+    static String[][] arrayOfQuestionsAndAnswers = new String[Engine.COUNT_OF_ROUNDS][Engine.COUNT_ANSWER_OPTIONS];
+
     public static void game() {
         addArrayToGameData();
-        Engine.gameLogic("Find the greatest common divisor of given numbers.");
+        Engine.gameLogic("Find the greatest common divisor of given numbers.",arrayOfQuestionsAndAnswers);
     }
 
     private static void addArrayToGameData() {
@@ -13,8 +16,8 @@ public class GreatestCommonDivisor {
             int randomNum1 = Engine.getRandomNum(Engine.RANDOM_RANGE);
             int randomNum2 = Engine.getRandomNum(Engine.RANDOM_RANGE);
 
-            Engine.getArrCorrectAnswers()[i] = Integer.toString(getGreatestCommonDivisor(randomNum1, randomNum2));
-            Engine.getArrQuestions()[i] = randomNum1 + " " + randomNum2;
+            arrayOfQuestionsAndAnswers[i][0] = randomNum1 + " " + randomNum2;
+            arrayOfQuestionsAndAnswers[i][1] = Integer.toString(getGreatestCommonDivisor(randomNum1, randomNum2));
         }
     }
 

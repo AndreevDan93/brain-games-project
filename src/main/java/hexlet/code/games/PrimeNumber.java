@@ -5,9 +5,12 @@ import hexlet.code.Engine;
 import java.math.BigInteger;
 
 public class PrimeNumber {
+
+    static String[][] arrayOfQuestionsAndAnswers = new String[Engine.COUNT_OF_ROUNDS][Engine.COUNT_ANSWER_OPTIONS];
+
     public static void game() {
         addArrayToGameData();
-        Engine.gameLogic("Answer 'yes' if number even otherwise answer 'no'.");
+        Engine.gameLogic("Answer 'yes' if number even otherwise answer 'no'.",arrayOfQuestionsAndAnswers);
     }
 
 
@@ -17,8 +20,8 @@ public class PrimeNumber {
             int randomNumber = Engine.getRandomNum(Engine.RANDOM_RANGE);
             String correctAnswer = isPrimeNumber(randomNumber);
 
-            Engine.getArrQuestions()[i] = Integer.toString(randomNumber);
-            Engine.getArrCorrectAnswers()[i] = correctAnswer;
+            arrayOfQuestionsAndAnswers[i][0] = Integer.toString(randomNumber);
+            arrayOfQuestionsAndAnswers[i][1] = correctAnswer;
 
         }
     }

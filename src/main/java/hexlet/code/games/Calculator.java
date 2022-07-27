@@ -5,17 +5,18 @@ import hexlet.code.Engine;
 
 public class Calculator {
     static final String[] OPERATIONS = {"+", "-", "*"};
+    static String[][] arrayOfQuestionsAndAnswers = new String[Engine.COUNT_OF_ROUNDS][Engine.COUNT_ANSWER_OPTIONS];
 
     public static void game() {
-        addArrayToGameData();
-        Engine.gameLogic("What is the result of the expression?");
+        generateGameData();
+        Engine.gameLogic("What is the result of the expression?",arrayOfQuestionsAndAnswers);
     }
 
-    private static void addArrayToGameData() {
+    private static void generateGameData() {
         for (int i = 0; i < Engine.COUNT_OF_ROUNDS; i++) {
             String randomExpression = getRandomExpression();
-            Engine.getArrCorrectAnswers()[i] = Integer.toString(getResultOfRandomExpression(randomExpression));
-            Engine.getArrQuestions()[i] = randomExpression;
+            arrayOfQuestionsAndAnswers[i][0] = randomExpression;
+            arrayOfQuestionsAndAnswers[i][1] = Integer.toString(getResultOfRandomExpression(randomExpression));
         }
     }
 

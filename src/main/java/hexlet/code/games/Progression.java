@@ -6,10 +6,11 @@ import hexlet.code.Engine;
 public class Progression {
 
     private static final int ARR_LENGTH = 10;
+    static String[][] arrayOfQuestionsAndAnswers = new String[Engine.COUNT_OF_ROUNDS][Engine.COUNT_ANSWER_OPTIONS];
 
     public static void game() {
         addArrayToGameData();
-        Engine.gameLogic("What number is missing in the progression?");
+        Engine.gameLogic("What number is missing in the progression?",arrayOfQuestionsAndAnswers);
     }
 
     private static void addArrayToGameData() {
@@ -20,10 +21,10 @@ public class Progression {
 
             addArrayToProgressionData(progression, progressionStep);
 
-            Engine.getArrCorrectAnswers()[i] = progression[randomIndex];
+            arrayOfQuestionsAndAnswers[i][1] = progression[randomIndex];
             progression[randomIndex] = "..";
 
-            Engine.getArrQuestions()[i] = String.join(" ", progression);
+            arrayOfQuestionsAndAnswers[i][0] = String.join(" ", progression);
         }
     }
 
