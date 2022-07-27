@@ -12,7 +12,6 @@ public class Engine {
     public static final int COUNT_ANSWER_OPTIONS = 2;
     public static final String POSITIVE = "yes";
     public static final String NEGATIVE = "no";
-    private static String playerName;
 
     public static int getRandomNum(int randomRange) {
         return RANDOM.nextInt(randomRange);
@@ -22,7 +21,7 @@ public class Engine {
         System.out.print("Welcome to the Brain Games!\n"
                 + "May I have your name? ");
         SCANNER.nextLine();
-        playerName = SCANNER.next();
+        String playerName = SCANNER.next();
         System.out.println("Hello, " + playerName + "!");
 
         System.out.println(gameConditions);
@@ -39,7 +38,7 @@ public class Engine {
             } else {
                 System.out.println("'" + inputAnswer + "' "
                         + "is wrong answer ;(. Correct answer was '" + correctAnswer + "'. Let's try again, "
-                        + Engine.playerName + "!");
+                        + playerName + "!");
                 return;
             }
         }
