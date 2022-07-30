@@ -6,8 +6,10 @@ import hexlet.code.Engine;
 public class EvenCheck {
 
     private static final String GAME_CONDITIONS = "Answer 'yes' if number even otherwise answer 'no'.";
+    private static final String POSITIVE = "yes";
+    private static final String NEGATIVE = "no";
 
-    public static void game() {
+    public static void runGame() {
         Engine.gameLogic(GAME_CONDITIONS, generateGameData());
     }
 
@@ -17,7 +19,7 @@ public class EvenCheck {
         for (int i = 0; i < Engine.COUNT_OF_ROUNDS; i++) {
             int randomNum = Engine.getRandomNum(Engine.RANDOM_RANGE);
             arrayOfData[i][0] = Integer.toString(randomNum);
-            arrayOfData[i][1] = randomNum % 2 == 0 ? Engine.POSITIVE : Engine.NEGATIVE;
+            arrayOfData[i][1] = randomNum % 2 == 0 ? POSITIVE : NEGATIVE;
         }
         return arrayOfData;
     }

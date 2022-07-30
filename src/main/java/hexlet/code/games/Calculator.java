@@ -6,7 +6,7 @@ import hexlet.code.Engine;
 public class Calculator {
     private static final String GAME_CONDITIONS = "What is the result of the expression?";
     private static final String[] OPERATIONS = {"+", "-", "*"};
-    public static void game() {
+    public static void runGame() {
         Engine.gameLogic(GAME_CONDITIONS, generateGameData());
     }
 

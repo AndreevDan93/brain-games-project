@@ -39,19 +39,19 @@ public class App {
                 Cli.greeting();
                 break;
             case EVEN:
-                EvenCheck.game();
+                EvenCheck.runGame();
                 break;
             case CALC:
-                Calculator.game();
+                Calculator.runGame();
                 break;
             case GCD:
-                GreatestCommonDivisor.game();
+                GreatestCommonDivisor.runGame();
                 break;
             case PROGRESSION:
-                Progression.game();
+                Progression.runGame();
                 break;
             case PRIME:
-                PrimeNumber.game();
+                PrimeNumber.runGame();
                 break;
             default:
                 throw new RuntimeException("The game at number " + inputNum + " is not found");

@@ -10,8 +10,7 @@ public class Engine {
     public static final int COUNT_OF_ROUNDS = 3;
     public static final int RANDOM_RANGE = 100;
     public static final int COUNT_ANSWER_OPTIONS = 2;
-    public static final String POSITIVE = "yes";
-    public static final String NEGATIVE = "no";
+
 
     public static int getRandomNum(int randomRange) {
         return RANDOM.nextInt(randomRange);

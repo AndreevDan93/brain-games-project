@@ -7,7 +7,7 @@ public class Progression {
 
     private static final String GAME_CONDITIONS = "What number is missing in the progression?";
     private static final int ARR_LENGTH = 10;
-    public static void game() {
+    public static void runGame() {
         Engine.gameLogic(GAME_CONDITIONS, generateGameData());
     }
 

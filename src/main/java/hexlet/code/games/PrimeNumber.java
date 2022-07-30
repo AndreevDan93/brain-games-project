@@ -7,7 +7,10 @@ import java.math.BigInteger;
 public class PrimeNumber {
 
     private static final String GAME_CONDITIONS = "Answer 'yes' if number even otherwise answer 'no'.";
-    public static void game() {
+    private static final String POSITIVE = "yes";
+    private static final String NEGATIVE = "no";
+
+    public static void runGame() {
         Engine.gameLogic(GAME_CONDITIONS, generateGameData());
     }
 
@@ -27,7 +30,7 @@ public class PrimeNumber {
     private static String isPrimeNumber(int number) {
         BigInteger bigInteger = BigInteger.valueOf(number);
         boolean isPrime = bigInteger.isProbablePrime((int) Math.log(number));
-        return isPrime ? Engine.POSITIVE : Engine.NEGATIVE;
+        return isPrime ? POSITIVE : NEGATIVE;
     }
 
 }
